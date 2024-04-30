@@ -59,7 +59,7 @@ void menu()
 void inicializar()
 {
 
-	// se a lista j� possuir elementos
+	// se a lista j� possuir elementos
 	// libera a memoria ocupada
 	NO* aux = topo;
 	while (aux != NULL) {
@@ -72,7 +72,6 @@ void inicializar()
 	cout << "Pilha inicializada \n";
 
 }
-
 
 void push()
 {
@@ -87,13 +86,29 @@ void push()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (topo == NULL) {
+		topo = novo;
+	}
+		
+	else {
+		novo->prox = topo;
+		topo = novo;
+	}
 
 }
 
 void pop()
 {
+	NO* aux = topo;
 
+	if (topo == NULL) {
+		cout << "A Pilha está vazia. \n";
+	}
+
+	else {
+		topo = topo->prox;
+		cout << "Elemento " << aux->valor << " foi excluído. \n";
+		free(aux);
+	}
 	
-
 }
-
